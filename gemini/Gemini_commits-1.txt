@@ -1,0 +1,123 @@
+Gemini commits
+
+First code
+Used prompt:
+
+The plot of a 2d platformer (scrolling platformer) is given: 
+“The Lost Firefly”   
+Plot: In a magical forest where eternal night reigns, a little firefly named Sparkle loses his source of light - magic pollen. Without it, he cannot light his way and risks getting lost forever.   
+Plot: Sparkle sets off on a journey through a dark forest full of dangers and riddles to find his lost pollen. He must overcome obstacles, solve puzzles based on the use of light and shadow, and avoid encounters with nocturnal predators.   
+The ending: Sparkle finds the pollen and regains his light, illuminating the dark forest and helping other lost creatures.  
+
+Create the first level for this game in python and pygame. The level should be in a separate file (.json) and the code should use sprites (ground.png, char.png, enemy1.png, bg.png)
+
+-
+
+Create .dir
+
+-
+add assets of the game
+these assets were made by Google Gemini
+-
+Fixed mistakes (more info in description)
+prompt: Here are the bugs that were found: the character does not turn to the left if he walks to the left; instead of the floor picture, the gray platform from level1.json ( {“x”: 0, “y”: 450, “width”: 800, “height”: 50},) is used; the character does not react to the enemy in any way; the character can go outside of the level left and right
+-
+Added scrolling to the level
+Detected bug: player cannot go further after the second platform.
+
+Prompts:
+1) "Add scrolling to a platformer game. Don't write full code, but only those parts where you need to add something. But those parts where you need to add something - write the whole code." (code and json were given)
+2) Fix a bug where platforms were disappeared (camera_x & camera_y were added by Gemini);
+3) "Make changes to the code so that background would not move with the platforms" (Gemini added "screen.blit(bg_img, (0, 0))").
+-
+Fixed scrolling (more info in the description)
+Now the player can go further than x = 800
+
+Prompts: 
+1) "Fix a bug where player cannot go further than 800 per x" (Gemini suggested 3 methods of solving this problem: making the level infinite, limit movement to level boundaries and combined option - soft boundary with level boundaries);
+2) "Fix a bug using third method" (Gemini provided this code)
+-
+Add Main menu for the game
+prompts: 
+1) "Hi. Make a menu for the Lost Firefly game in Python. How it should look like:  
+1) splash screen with game name, background (bg.png) and character (char_full.png). When you press enter, the main menu loads; 
+1) main menu - ‘start game’, ‘level selection’, ‘exit’; 
+2) when you press ‘start game’ - the story is displayed, as in Undertale (above picture, below - part of the text of the story (story: In a magical forest, where the eternal night reigns, a little firefly named Sparkle loses his source of light - magic pollen. Without it, he cannot light his way and risks getting lost forever. Sparkle sets off on a journey through a dark forest full of dangers and riddles to find the lost pollen. He will have to overcome obstacles and avoid encounters with nocturnal predators.). After that, main.py is loaded; 
+3) when you click ‘select level’ - a menu with five levels is displayed. For now only the first level should be available. When you click on the first level - main.py is loaded. There should also be a back button that will return to the main menu
+
+Pictures are in images directory, don't forget to reduce background size to window size and other sizes"
+2) "add functionality to run main.py when selecting a level or starting a game, given that the file is on the same category as the menu code file"
+-
+add char_full.png
+required for the main menu
+-
+Add eliminating enemies by jumping on them
+prompts:
+1) "Add a code to the game that allows the player to take out an enemy by jumping on him. As he jumps on the enemy he should jump up a little";
+2) "Fix a bug when nothing happens when the player jumps to an enemy" (Gemini fixed a bug);
+3) "Fix a bug when the player jumps to the enemy, but the enemy doesn't disappear" (Gemini fixed a bug and provided this version of code)
+-
+Basic lives counting functionality
+Prompts:
+1) "add 3 lives to the game and ability to lose one life if touching (but NOT jumping and falling) the enemy" (Gemini provided this functionality);
+2) "add game over screen" (this version of code)
+-
+Add heart count to the screen
+prompt:
+1) "Now add the lives count on the left side of the screen. It should not be moved";
+-
+collecting lives functionality
+Prompt:
+"Now add the ability to collect lives to the game. It should use the same "heart.png" sprite. Here's the level data: (provided level1.json)"
+-
+Add score functionality
+Prompt:
+"Now add the score functionality. If players kills the enemy, he gets 100 points"
+-
+Add coin functionality
+Prompt:
+"Now add coins to the game. If player gets a coin, he gets 10 points. If he collects 10 coins, he gets 1 life"
+-
+Add enemy movement
+prompts:
+1) "Can you please add enemy movement to the game? They should walk left and right. Please show only the part of code that should be changed Here's the code of the game: (provided game's code)";
+2) "Fix a bug when enemies do not move" (Gemini fixed the bug)
+3) "Ok, now add them collision (so that they could fall from the platforms) and ability to move further than screen resolution" (Gemini provided the code with a missing attribute)
+4) "Traceback (most recent call last):
+  File "/Users/n0tinfinity/Documents/geminigame/code/main.py", line 259, in <module>
+    enemy.update(platforms)
+  File "/Users/n0tinfinity/Documents/geminigame/code/main.py", line 149, in update
+    self.vel_y += 0.5  # Gravity
+AttributeError: 'Enemy' object has no attribute 'vel_y'." (Gemini provided this version of code)
+-
+Implement level completion
+Prompts:
+1) "Add an object that, when touched, completes the level and shows the “Level completed!” screen. Add the object in the same way as the coin is added here. Write only the part of the code you need to change";
+2) *prompt with an error TypeError: 'Flag' object is not iterable* (Gemini fixed the bug and provided this version of code)
+-
+replace placeholder sprites with those made by Gemini
+prompts: "Draw an 8-bit sprite of the finish flag for the game"
+"Draw an 8-bit coin sprite for the game"
+"Draw an 8-bit heart sprite for the game"
+-
+The first level
+prompt: "The code for the game is given: *game's code*. Create the first level for this game. Make it long and interesting "
+-
+add losing life when falling
+prompt: "Add to the code that if the player falls off the screen, they lose 1 life"
+-
+add 5 levels
+prompt: "Create a level for the game. It should be interesting and long" (repeated 5 times)
+-
+add backgrounds for the levels
+prompt: "*game description*. Create a 8-bit background for the game" (repeated 3 times)
+-
+implement loading other levels
+prompt: "Add in the code to switch to the next level when you pass a level."
+-
+add game completion screen
+prompt: "Now instead of the ‘All levels completed’ message, make the screen in the code"
+-
+implement saving points during levels
+prompt: "Now make it in the code so that the number of points and lives gained are saved between levels"
+-
