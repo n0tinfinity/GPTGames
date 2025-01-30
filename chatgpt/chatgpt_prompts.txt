@@ -1,0 +1,69 @@
+add sprites made by DALL-E (ChatGPT)
+prompts:
+1) ‘*game description* Make a set of sprites for the main character (running, jumping, etc)’ - (ChatGPT gave the files spark.png, spark_run.png & spark_jump.png)
+2) ‘*game description* Make a background and ground for this game’ (ChatGPT gave the files bg.png and ground.png)
+3) ‘*game description* Make a set of platform sprites for this game’ (ChatGPT gave out a set of sprites, the best sprite was chosen - platform.png).
+-
+First code (2nd attempt)
+prompt: "*game concept* Create the first level for this game in python and pygame. The level should be in a separate file (.json), and the code should use sprites (all in the images directory): bg.png (background), ground.png (floor), spark.png (character standing), spark_run.png (character running), spark_jump.png (character jumping), platform.png (platform sprite). Reduce the size of the character sprites in code, but the size of the platform and floor in json. Also make scrolling for this game."
+-
+add character looking left when running left
+prompt: "Make it so that in the json you can specify which sprite to use - ground.png or platform.png. Also make it so that the character turns left if he runs to the left"
+-
+Bugfix (player could go x < 0)
+prompt: "Found a bug - the character can go beyond the beginning of the level (although the camera doesn't go there, which is correct). Fix this bug"
+-
+add star collecting
+prompt: "Now, in the game code, add stars that the main character can collect (star sprite - star.png) and update JSON"
+-
+add sprite made by ChatGPT
+prompt is the same as with other sprite set
+-
+add star counting functionality
+prompt: "Now add visible star counting to the game (so that you can see how many stars a player has collected)"
+-
+Bugfix (player could jump on the platform, being under it)
+prompt: "Bug detected: player can jump on a platform while underneath it. Fix it"
+non-chatgpt related: moved some platforms lower
+-
+add enemy sprite made by DALL-E (ChatGPT)
+prompt: "*game description* Based on the description draw a sprite for the enemy"
+-
+add enemies to the game (properly)
+prompt: "Add in the game and enemy json. Write only modified parts of the code."
+-
+add collision for enemies
+prompt: "add collision detection to the enemies"
+-
+add removing enemy by jumping on it
+prompt: "Now make it so that the enemy moves away if the player jumps on it"
+-
+add lifes functionality
+prompts:
+1) "add lives functionality to the game"
+2) "Fix the bug: when colliding with an enemy, not one life is lost, but all at once"
+3) "Make the level restart when you lose 1 life"
+-
+added losing life if player falls
+prompt: "add losing life if player falls out of bounds"
+-
+fix camera when level restart
+prompt: "The camera needs to be reset on restart too"
+-
+add flag functionality
+prompt: "Add a finish flag to the game that will load the next level when touched by a character"
+-
+add sprite made by ChatGPT
+prompt: "Draw an 8-bit finish flag sprite for the game"
+-
+bugfix
+prompt: "There is a bug: player loses life when interacting with a flag. Fix it and write only the changed part of the code."
+-
+fix flag bug
+prompt: "There is a bug there: despite a different flag location in the second level, it is still located according to the location in the first level. Fix it and write the changed part of the code"
+-
+fix life bug
+prompt: "Now fix the following bug: the player loses two lives at once when touching an enemy"
+-
+add five levels made by ChatGPT
+prompt: "create an interesting and long level based on the game's code" (repeated 5 times)
